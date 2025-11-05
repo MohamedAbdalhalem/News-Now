@@ -1,12 +1,14 @@
-
+"use client"
+import useTheme from "@/Hooks/useTheme"
 
 export default function Navbar() {
+  const {theme,changemode} = useTheme()
   return (
     <div className="navbar bg-base-100 shadow-sm ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-        <i className="fa-solid fa-bars"></i>
+        <i className="fa-solid fa-bars-staggered"></i>
       </div>
       <ul
         tabIndex={-1}
@@ -21,10 +23,14 @@ export default function Navbar() {
     <a className="btn btn-ghost text-xl">NewsNow</a>
   </div>
   <div className="navbar-end">
-    <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
-    </button>
-    
+        <select
+          onChange={(e) => changemode(e)}
+          value={theme} className="select select-accent max-w-45">
+          <option disabled={true}>theme</option>
+          <option value='Light mode'>Light mode</option>
+          <option value='Dark mode'>Dark mode</option>
+          <option value='System'>System</option>
+        </select>
   </div>
 </div>
   )
