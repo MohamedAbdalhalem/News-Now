@@ -1,5 +1,7 @@
 "use client"
-import useTheme from "../hooks/useTheme"
+
+import useTheme from "@/hooks/useTheme"
+
 
 export default function Navbar() {
   const {theme,changemode} = useTheme()
