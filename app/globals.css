@@ -1,3 +1,19 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @custom-variant dark (&:where(.dark, .dark *));
+
+
+.slick-prev, .slick-next {
+    display: none !important;
+}
+.slick-dots{
+    bottom: 0px;
+    
+}
+.slick-dots li button:before{
+    color: white;
+    font-size: 10px;
+}
+.slick-dots li.slick-active button::before{
+    color: blue;
+}
