@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { article } from "@/types/article";
+import { article } from "../types/article";
 
 export default function useTopHeadlines() {
    function getTopHeadlines() {

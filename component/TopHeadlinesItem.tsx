@@ -1,5 +1,5 @@
-import { article } from "@/types/article";
-import notFoundImage from "@/public/360_F_989095613_BbuYiulrp81OPxcsQGP9sLBmUaSstTaN.jpg"
+import { article } from "../types/article";
+import notFoundImage from "../public/360_F_989095613_BbuYiulrp81OPxcsQGP9sLBmUaSstTaN.jpg"
 
 export default function TopHeadlinesItem({articleData} : {articleData : article} ) {
   return (
