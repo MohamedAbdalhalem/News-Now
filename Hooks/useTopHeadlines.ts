@@ -9,6 +9,7 @@ export default function useTopHeadlines() {
   const {data, isLoading} =  useQuery({
     queryKey: ['getTopHeadlines'],
     queryFn: getTopHeadlines,
+    refetchInterval: 60000,
   })
     const articles = data?.data.articles
     return {articles,isLoading}

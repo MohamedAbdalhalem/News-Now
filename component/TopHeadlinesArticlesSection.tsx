@@ -1,7 +1,7 @@
 "use client"
-import useTopHeadlines from "@/hooks/useTopHeadlines"
+import useTopHeadlines from "../hooks/useTopHeadlines"
 import Slider from "react-slick";
-import TopHeadlinesItem from "@/component/TopHeadlinesItem";
+import TopHeadlinesItem from "../component/TopHeadlinesItem";
 export default function TopHeadlinesArticlesSection() {
   const { articles, isLoading } = useTopHeadlines()
   var settings = {

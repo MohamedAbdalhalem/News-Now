@@ -1,4 +1,4 @@
-import TopHeadlinesArticlesSection from "@/component/TopHeadlinesArticlesSection";
+import TopHeadlinesArticlesSection from "../component/TopHeadlinesArticlesSection";
 
 
 export default function Home() {
