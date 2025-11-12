@@ -6,7 +6,7 @@ export default function TopHeadlinesItem({articleData} : {articleData : article}
 <div>
       <div className="relative w-full h-90 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
     <img 
-      src={ articleData.image || notFoundImage.src } 
+      src={ articleData.image ?? notFoundImage.src } 
       alt={articleData.title}
       className="w-full h-full object-fill"
     />
