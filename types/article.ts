@@ -5,7 +5,7 @@ export type article = {
     description: string,
     content: string,
     creator: string[],
-    image_url: string,
+    image_url: string | null,
     pubDate: string,
     source_name: string,
     source_url: string,
