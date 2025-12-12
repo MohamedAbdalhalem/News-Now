@@ -1,14 +1,17 @@
 export type article = {
-    id: string,
+    article_id: string,
+    link:string,
     title: string,
     description: string,
     content: string,
-    url: string,
-    image: string,
-    publishedAt: string,
-    source: {
-        name: string,
-        url:string
-    }
+    creator: string[],
+    image_url: string,
+    pubDate: string,
+    source_name: string,
+    source_url: string,
+    source_icon: string,
+    language: string,
+    country: string[],
+    category: string[]
 }
 

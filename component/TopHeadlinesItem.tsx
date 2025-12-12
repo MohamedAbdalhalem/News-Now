@@ -6,7 +6,7 @@ export default function TopHeadlinesItem({articleData} : {articleData : article}
 <div>
       <div className="relative w-full h-90 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
     <img 
-      src={ articleData.image ?? notFoundImage.src } 
+      src={ articleData.image_url ?? notFoundImage.src } 
       alt={articleData.title}
       className="w-full h-full object-fill"
     />
@@ -21,9 +21,9 @@ export default function TopHeadlinesItem({articleData} : {articleData : article}
         {articleData.description}
       </p>
       <div className="flex justify-between items-center mt-3 text-xs">
-        <span>{new Date(articleData.publishedAt).toLocaleDateString()}</span>
+        <span>{new Date(articleData.pubDate).toLocaleDateString()}</span>
         <a 
-          href={articleData.url} 
+          href={articleData.link} 
           target="_blank"
           className="btn btn-sm btn-outline btn-primary"
         >
