@@ -6,6 +6,7 @@ import Entertainment from '@/public/wallpaperflare.com_wallpaper (4).jpg'
 import physics from '@/public/wallpaperflare.com_wallpaper (5).jpg'
 import Health from '@/public/wallpaperflare.com_wallpaper (6).jpg'
 import Politics from '@/public/wallpaperflare.com_wallpaper (7).jpg'
+import Link from 'next/link'
 const Categories = [
       { name: "World", img: World.src },
       { name: "Technology", img: Technology.src },
@@ -23,9 +24,9 @@ export default function CategoriesSection() {
 
   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
     {Categories.map((cat) => (
-      <a
+      <Link
         key={cat.name}
-        href={`/category/${cat.name.toLowerCase()}`}
+        href={`/${cat.name.toLowerCase()}`}
         className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
       >
         <img
@@ -37,7 +38,7 @@ export default function CategoriesSection() {
         <h3 className="absolute bottom-3 left-3 text-white text-lg font-semibold">
           {cat.name}
         </h3>
-      </a>
+      </Link>
     ))}
   </div>
 </section>
