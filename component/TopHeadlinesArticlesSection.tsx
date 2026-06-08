@@ -6,6 +6,7 @@ import ClientRefresher from "./ClientRefresher";
 async function Articles() {
   const response = await fetch(
     "https://newsdata.io/api/1/latest?apikey=pub_781cf392275245829f11a3d763ba2992",
+    {cache:'no-cache'}
   );
 
   const data = (await response.json()) as { results: article[] };
