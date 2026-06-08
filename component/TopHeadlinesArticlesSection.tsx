@@ -22,7 +22,7 @@ async function Articles() {
   </div>
 
   {/* Other News */}
-  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
+  <div className="hidden md:grid md:grid-cols-2  gap-6">
     {data.results.slice(1, 3).map((article: article) => (
       <TopHeadlinesItem
         key={article.article_id}
