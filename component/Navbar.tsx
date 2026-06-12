@@ -36,7 +36,7 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={-1}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-[50vb] p-2 shadow flex-row justify-between gap-y-2"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-[75vw]  md:w-[50vw] lg:w-[25vw]  p-2 shadow flex-row justify-between gap-y-2"
           >
             <li>
               <Link
@@ -70,7 +70,7 @@ export default function Navbar() {
         <select
           onChange={(e) => changemode(e)}
           value={theme}
-          className="select select-accent max-w-45"
+          className="select select-accent max-w-45 text-wrap"
         >
           <option disabled={true}>theme</option>
           <option value="Light mode">Light mode</option>
