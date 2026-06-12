@@ -1,4 +1,5 @@
 import World from '@/public/wallpaperflare.com_wallpaper.jpg'
+import Breaking from '@/public/breaking.jpg'
 import Technology from '@/public/wallpaperflare.com_wallpaper (1).jpg'
 import Business from '@/public/wallpaperflare.com_wallpaper (2).jpg'
 import Sports from '@/public/wallpaperflare.com_wallpaper (3).jpg'
@@ -6,9 +7,18 @@ import Entertainment from '@/public/wallpaperflare.com_wallpaper (4).jpg'
 import physics from '@/public/wallpaperflare.com_wallpaper (5).jpg'
 import Health from '@/public/wallpaperflare.com_wallpaper (6).jpg'
 import Politics from '@/public/wallpaperflare.com_wallpaper (7).jpg'
+import Tourism from '@/public/tourism.jpg'
+import Food from '@/public/food.jpg'
+import Crime from '@/public/crime.jpg'
+import Education from '@/public/education.jpg'
+import Environment from '@/public/environment.jpg'
+import LifyStyle from '@/public/lifestyle.jpg'
+import Other from '@/public/other.png'
+
 import Link from 'next/link'
 const Categories = [
       { name: "World", img: World.src },
+      { name: "Breaking News", img: Breaking.src },
       { name: "Technology", img: Technology.src },
       { name: "Business", img: Business.src },
       { name: "Sports", img: Sports.src },
@@ -16,6 +26,13 @@ const Categories = [
       { name: "Science", img: physics.src },
       { name: "Health", img: Health.src },
       { name: "Politics", img: Politics.src },
+      {name: "Tourism",img: Tourism.src},
+      {name: "Food",img: Food.src},
+      {name: "Crime",img: Crime.src},
+      {name: "Education",img: Education.src},
+      {name: "Environment",img: Environment.src},
+      {name:"LifyStyle",img:LifyStyle.src},
+      {name:"Other",img:Other.src},
     ]
 export default function CategoriesSection() {
   return (

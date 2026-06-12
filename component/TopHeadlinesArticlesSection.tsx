@@ -5,12 +5,11 @@ import ClientRefresher from "./ClientRefresher";
 
 async function Articles() {
   const response = await fetch(
-    "https://newsdata.io/api/1/latest?apikey=pub_781cf392275245829f11a3d763ba2992",
+    "https://newsdata.io/api/1/latest?apikey=pub_61b7fff946fc4d8a98761cd82c368365",
     {cache:'no-cache'}
   );
 
   const data = (await response.json()) as { results: article[] };
-  console.log(data.results);
   return (
     <div className="space-y-6">
   {/* Hero News */}

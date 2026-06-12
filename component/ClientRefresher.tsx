@@ -1,12 +1,15 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+
+// import { useEffect } from "react";
+// import { revalidateHome } from "@/lib/actions";
 
 export default function ClientRefresher() {
-  const router = useRouter();
-  useEffect(() => {
-    const id = setInterval(() => router.refresh(), 20000);
-    return () => clearInterval(id);
-  }, [router]);
+  // useEffect(() => {
+  //   const id = setInterval(() => {
+  //     revalidateHome();
+  //   }, 10000);
+
+  //   return () => clearInterval(id);
+  // }, []);
   return null;
 }

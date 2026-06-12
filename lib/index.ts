@@ -1,0 +1,24 @@
+import { article } from "@/types/article";
+
+export async function getArticlesOfCategory(
+  category: string,
+  page: undefined | string,
+) {
+  const params = new URLSearchParams({
+    category,
+    size: "6",
+  });
+  const url = `https://newsdata.io/api/1/latest?apikey=pub_61b7fff946fc4d8a98761cd82c368365${
+    page ? `&page=${page}` : ""
+  }&${params}`;
+  const response = await fetch(url);
+  const { results: articles, nextPage } = (await response.json()) as {
+    results: article[];
+    nextPage: string;
+  };
+
+  return {
+    articles,
+    nextPage,
+  };
+}
