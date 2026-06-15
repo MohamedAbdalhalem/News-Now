@@ -133,7 +133,7 @@ export default async function page({
         <div className="flex items-start flex-wrap justify-between mb-6 ">
           <div>
             <h1 className="text-2xl font-bold  tracking-tight">
-              Entertainment
+              { category }
             </h1>
             <p className="text-sm  mt-0.5">
               Exploring the latest news, trends, and developments across a wide
