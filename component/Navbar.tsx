@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const routes: string[] = [
   "World",
-  "Breaking News",
+  "Breaking",
   "Technology",
   "Business",
   "Sports",
@@ -19,14 +19,14 @@ const routes: string[] = [
   "Crime",
   "Education",
   "Environment",
-  "LifyStyle",
+  "LifeStyle",
   "Other",
 ];
 
 export default function Navbar() {
   const { theme, changemode } = useTheme();
   const path = usePathname();
-  
+
   return (
     <div className="navbar bg-base-100 shadow-sm ">
       <div className="navbar-start">

@@ -6,7 +6,7 @@ import ReadMoreButton from "./ReadMoreButton";
 export default function ArticleCard({ article }: { article: article }) {
   return (
     <Link
-      href={`/Entertainment/${article.article_id}`}
+      href={`${article.category[0]}/${article.article_id}`}
       className="group h-full flex flex-col border border-black/10 overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-xl"
     >
       <div className="relative h-60 overflow-hidden">
@@ -14,7 +14,6 @@ export default function ArticleCard({ article }: { article: article }) {
           src={article.image_url || notFoundImage}
           alt={article.title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-[0.25em] px-2 py-1 border backdrop-blur-sm">

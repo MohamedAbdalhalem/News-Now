@@ -7,7 +7,6 @@ export default async function ArticleDetialsPage({
   params: Promise<{ article_id: string }>;
 }) {
   const { article_id: articleId } = await params;
-
   const response = await fetch(`https://newsdata.io/api/1/latest? 
   apikey=pub_61b7fff946fc4d8a98761cd82c368365
   &id=${articleId}`);

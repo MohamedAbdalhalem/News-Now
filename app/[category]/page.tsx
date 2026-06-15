@@ -4,11 +4,14 @@ import Pagination from "@/component/Pagination";
 import { getArticlesOfCategory } from "@/lib";
 import { Suspense } from "react";
 
-async function Articles({ page }: { page: string | undefined }) {
-  const { articles, nextPage } = await getArticlesOfCategory(
-    "entertainment",
-    page,
-  );
+async function Articles({
+  page,
+  category,
+}: {
+  page: string | undefined;
+  category: string;
+}) {
+  const { articles, nextPage } = await getArticlesOfCategory(category, page);
 
   return (
     <>
@@ -24,10 +27,13 @@ async function Articles({ page }: { page: string | undefined }) {
 }
 
 export default async function page({
+  params,
   searchParams,
 }: {
+  params: Promise<{ category: string }>;
   searchParams: Promise<{ page: string }>;
 }) {
+  const { category } = await params;
   const { page } = await searchParams;
   return (
     <main className="flex font-sans">
@@ -154,7 +160,7 @@ export default async function page({
           </div>
         </div>
         <Suspense key={page} fallback={<ArticlesSkeleton />}>
-          <Articles page={page} />
+          <Articles page={page} category={category} />
         </Suspense>
         {/* Grid */}
       </main>
