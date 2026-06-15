@@ -5,7 +5,10 @@ import Link from "next/link";
 import ReadMoreButton from "./ReadMoreButton";
 export default function ArticleCard({ article }: { article: article }) {
   return (
-    <Link href={`/Entertainment/${article.article_id}`} className="group h-full flex flex-col border border-black/10 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Link
+      href={`/Entertainment/${article.article_id}`}
+      className="group h-full flex flex-col border border-black/10 overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-xl"
+    >
       <div className="relative h-60 overflow-hidden">
         <Image
           src={article.image_url || notFoundImage}
