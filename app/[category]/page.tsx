@@ -1,6 +1,7 @@
 import ArticleCard from "@/component/ArticleCard";
 import ArticlesSkeleton from "@/component/ArticlesSkeleton";
 import Pagination from "@/component/Pagination";
+import SideBar from "@/component/SideBar";
 import { getArticlesOfCategory } from "@/lib";
 import { Suspense } from "react";
 
@@ -15,7 +16,7 @@ async function Articles({
 
   return (
     <>
-      <div className="grid  md:grid-cols-2 lg:grid-cols-3  gap-5 mb-8">
+      <div className="grid  md:grid-cols-2 xl:grid-cols-3  gap-5 mb-8">
         {articles.map((article) => (
           <ArticleCard key={article.article_id} article={article} />
         ))}
@@ -128,36 +129,17 @@ export default async function page({
       </aside>
 
       {/* Main */}
-      <main className="flex-1 py-8 px-5 ">
+      <main className="flex-1 py-8 px-5 relative">
         {/* Header */}
-        <div className="flex items-start flex-wrap justify-between mb-6 ">
-          <div>
-            <h1 className="text-2xl font-bold  tracking-tight">
-              { category }
-            </h1>
+        <div className="flex items-center justify-between mb-6 gap-5 ">
+          <div className="w-[70%]">
+            <h1 className="text-2xl font-bold  tracking-tight">{category}</h1>
             <p className="text-sm  mt-0.5">
               Exploring the latest news, trends, and developments across a wide
               range of topics.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-xs  mt-1">
-            <span className="font-semibold uppercase tracking-wider">
-              Sort by: Latest
-            </span>
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 4h18M6 8h12M9 12h6"
-              />
-            </svg>
-          </div>
+          <SideBar />
         </div>
         <Suspense key={page} fallback={<ArticlesSkeleton />}>
           <Articles page={page} category={category} />
