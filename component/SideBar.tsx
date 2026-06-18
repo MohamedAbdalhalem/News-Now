@@ -33,11 +33,11 @@ export default function SideBar() {
       {isShow && (
         <div
           onClick={toggleSideBarHandler}
-          className="absolute flex lg:hidden top-0 right-0 z-20 h-full w-full bg-black/40 backdrop-blur-sm"
+          className="fixed min-h-screen flex lg:hidden top-0 right-0 z-20 h-full w-full bg-black/40 backdrop-blur-sm"
         >
           <aside
             onClick={(e) => e.stopPropagation()}
-            className=" w-[70%] md:w-[40%] ms-auto border border-base-300 rounded-l-2xl bg-base-100 p-6 h-full space-y-8"
+            className=" w-[70%] md:w-[40%] ms-auto border border-base-300 rounded-l-2xl bg-base-100 p-6  space-y-8"
           >
             {/* Header */}
             <div>
