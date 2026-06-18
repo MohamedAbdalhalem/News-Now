@@ -1,6 +1,6 @@
 export default function ArticleDetailsSkeleton() {
   return (
-    <div className="max-w-5xl mx-auto py-10 px-5 animate-pulse">
+    <div className="max-w-5xl mx-auto px-5 pb-5 pt-20 animate-pulse">
       {/* Header */}
       <header>
         <div className="skeleton h-3 w-24 mb-4" />

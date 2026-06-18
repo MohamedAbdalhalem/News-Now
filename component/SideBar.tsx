@@ -8,6 +8,7 @@ export default function SideBar() {
   function toggleSideBarHandler() {
     setIsShow((prevState) => !prevState);
   }
+
   return (
     <>
       <button

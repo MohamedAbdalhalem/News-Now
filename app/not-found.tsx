@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function notFound() {
   return (
-    <div className="flex flex-col items-center justify-center h-[80vh]  p-4">
+    <div className="flex flex-col items-center justify-center h-[80vh]  px-5 pb-5 pt-20">
       <h1 className="text-9xl font-extrabold mb-4">404</h1>
       <p className="text-2xl md:text-3xl mb-6">Oops! Page not found.</p>
       <p className="text-lg md:text-xl mb-8 text-center max-w-md">

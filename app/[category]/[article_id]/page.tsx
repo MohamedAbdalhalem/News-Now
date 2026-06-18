@@ -12,10 +12,9 @@ export default async function ArticleDetialsPage({
   &id=${articleId}`);
   const articleData = ((await response.json()) as { results: article[] })
     .results[0];
-  console.log(articleData);
 
   return (
-    <div className="max-w-5xl mx-auto py-10 px-5">
+    <div className="max-w-5xl mx-auto px-5 pb-5 pt-20">
       {/* Header */}
       <header>
         <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-base-content/40">

@@ -37,7 +37,7 @@ export default async function page({
   const { category } = await params;
   const { page } = await searchParams;
   return (
-    <main className="flex font-sans">
+    <main className="flex font-sans px-5 pt-16">
       {/* Sidebar */}
       <aside className="hidden lg:flex w-64 min-w-64 flex-col border-r px-6 py-8">
         <div className="pb-6 border-b">

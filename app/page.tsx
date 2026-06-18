@@ -4,7 +4,7 @@ import CategoriesSection from "@/component/CategoriesSection";
 
 export default function HomePage() {
   return (
-    <div className="p-5">
+    <div className="px-5 pb-5 pt-20">
       <TopHeadlinesArticlesSection />
       <SearchSection />
       <CategoriesSection />

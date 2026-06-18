@@ -10,7 +10,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center h-[80vh] p-4">
+    <div className="flex flex-col items-center justify-center h-[80vh] px-5 pb-5 pt-20">
       <h1 className="text-6xl font-extrabold mb-4">Something went wrong</h1>
 
       <p className="text-lg text-center mb-8">{error.message}</p>
