@@ -1,6 +1,5 @@
 import notFoundImage from "@/public/360_F_989095613_BbuYiulrp81OPxcsQGP9sLBmUaSstTaN.jpg";
 import { article } from "@/types/article";
-import Image from "next/image";
 import Link from "next/link";
 import ReadMoreButton from "./ReadMoreButton";
 export default function ArticleCard({ article }: { article: article }) {
@@ -10,10 +9,10 @@ export default function ArticleCard({ article }: { article: article }) {
       className="group h-full flex flex-col border border-black/10 overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-xl"
     >
       <div className="relative h-60 overflow-hidden">
-        <Image
-          src={article.image_url || notFoundImage}
+        <img
+          src={article.image_url || notFoundImage.src}
           alt={article.title}
-          fill
+          loading="lazy"
         />
 
         <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-[0.25em] px-2 py-1 border backdrop-blur-sm">
