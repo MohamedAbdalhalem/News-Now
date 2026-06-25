@@ -1,18 +1,21 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
-export default function Pagination({
-  pageId,
-  category,
-}: {
-  pageId: string | null;
-  category: string;
-}) {
+export default function Pagination({ pageId }: { pageId: string | null }) {
   const router = useRouter();
-  const page = useSearchParams().get("page");
+  const params = useSearchParams();
+  const page = params.get("page");
+
   function changePageHandler() {
-    router.push(`/${category}?page=${pageId}`);
+    let url: string | string[] = window.location.href;
+    if (url.includes("?page")) {
+      url = window.location.href.split("?");
+      url = url.slice(0, url.length - 1);
+    }
+    if (pageId) {
+      router.push(`${url}?page=${pageId}`);
+    }
   }
 
   function backPageHandler() {
