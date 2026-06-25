@@ -22,7 +22,7 @@ async function Articles({
         ))}
       </div>
 
-      <Pagination pageId={nextPage} />
+      <Pagination category={category} pageId={nextPage} />
     </>
   );
 }

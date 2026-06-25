@@ -1,5 +1,7 @@
+"use server";
 import { article } from "@/types/article";
-
+import { cookies } from "next/headers";
+// import { revalidatePath } from "next/cache";
 export async function getArticlesOfCategory(
   category: string,
   page: undefined | string,

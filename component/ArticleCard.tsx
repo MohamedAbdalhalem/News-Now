@@ -13,6 +13,7 @@ export default function ArticleCard({ article }: { article: article }) {
           src={article.image_url || notFoundImage.src}
           alt={article.title}
           loading="lazy"
+          className="h-full w-full"
         />
 
         <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-[0.25em] px-2 py-1 border backdrop-blur-sm">
