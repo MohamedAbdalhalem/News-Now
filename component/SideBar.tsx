@@ -1,14 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
-export default function SideBar() {
+export default function SideBar({ category }: { category: string }) {
   const [isShow, setIsShow] = useState(false);
-
+  const router = useRouter();
   function toggleSideBarHandler() {
     setIsShow((prevState) => !prevState);
   }
 
+  function handleTimeZone(e: ChangeEvent<HTMLSelectElement>) {
+    Cookies.set("timezone", e.target.value, { expires: 7 });
+  }
+
+  function handleFilteration() {
+    router.push(`/${category}`);
+    toggleSideBarHandler();
+  }
   return (
     <>
       <button
@@ -34,7 +44,7 @@ export default function SideBar() {
       {isShow && (
         <div
           onClick={toggleSideBarHandler}
-          className="fixed min-h-screen flex lg:hidden top-0 right-0 z-20 h-full w-full bg-black/40 backdrop-blur-sm"
+          className="fixed  min-h-screen flex lg:hidden top-0 right-0 z-20 h-full w-full bg-black/40 backdrop-blur-sm"
         >
           <aside
             onClick={(e) => e.stopPropagation()}
@@ -49,76 +59,52 @@ export default function SideBar() {
             </div>
 
             {/* Categories */}
-            <div>
-              <h3 className="font-semibold mb-3">Categories</h3>
-
-              <div className="space-y-2">
-                <label className="label cursor-pointer justify-start gap-3">
-                  <input type="checkbox" className="checkbox checkbox-sm" />
-                  <span>Technology</span>
-                </label>
-
-                <label className="label cursor-pointer justify-start gap-3">
-                  <input type="checkbox" className="checkbox checkbox-sm" />
-                  <span>Business</span>
-                </label>
-
-                <label className="label cursor-pointer justify-start gap-3">
-                  <input type="checkbox" className="checkbox checkbox-sm" />
-                  <span>Sports</span>
-                </label>
-
-                <label className="label cursor-pointer justify-start gap-3">
-                  <input type="checkbox" className="checkbox checkbox-sm" />
-                  <span>Health</span>
-                </label>
-
-                <label className="label cursor-pointer justify-start gap-3">
-                  <input type="checkbox" className="checkbox checkbox-sm" />
-                  <span>Entertainment</span>
-                </label>
-              </div>
-            </div>
 
             {/* Date */}
             <div>
-              <h3 className="font-semibold mb-3">Date</h3>
+              <h3 className="font-semibold mb-3">Time Zone</h3>
 
-              <select className="select select-bordered w-full">
-                <option>Today</option>
-                <option>This Week</option>
-                <option>This Month</option>
-                <option>Any Time</option>
+              <select
+                onChange={handleTimeZone}
+                className="select select-bordered w-full"
+                defaultValue={Cookies.get("timezone")}
+              >
+                <option value="">Select A Time Zone</option>
+                <option value="africa/algiers">Africa/Algiers</option>
+                <option value="africa/cairo">Africa/Cairo</option>
+                <option value="africa/casablanca">Africa/Casablanca</option>
+                <option value="africa/harare"> Africa/Harare</option>
               </select>
             </div>
 
             {/* Sort */}
             <div>
-              <h3 className="font-semibold mb-3">Sort By</h3>
+              <h3 className="font-semibold mb-3">Domain Priority</h3>
 
               <select className="select select-bordered w-full">
-                <option>Latest</option>
-                <option>Oldest</option>
-                <option>Most Popular</option>
+                <option>Top</option>
+                <option>Medium</option>
+                <option>Low</option>
               </select>
             </div>
 
             {/* Source */}
-            <div>
-              <h3 className="font-semibold mb-3">Source</h3>
-
-              <input
-                type="text"
-                placeholder="Search source..."
-                className="input input-bordered w-full"
-              />
-            </div>
 
             {/* Actions */}
             <div className="flex flex-col gap-3 pt-2">
-              <button className="btn btn-primary w-full">Apply Filters</button>
+              <button
+                onClick={handleFilteration}
+                className="btn btn-primary w-full"
+              >
+                Apply Filters
+              </button>
 
-              <button className="btn btn-outline w-full">Reset</button>
+              <button
+                onClick={toggleSideBarHandler}
+                className="btn btn-outline w-full"
+              >
+                close
+              </button>
             </div>
           </aside>
         </div>

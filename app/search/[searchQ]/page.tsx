@@ -1,7 +1,6 @@
 import ArticleCard from "@/component/ArticleCard";
 import ArticlesSkeleton from "@/component/ArticlesSkeleton";
 import Pagination from "@/component/Pagination";
-import SideBar from "@/component/SideBar";
 import { article } from "@/types/article";
 import { Suspense } from "react";
 async function Articles({
@@ -145,7 +144,6 @@ export default async function Searchage({
               range of topics.
             </p>
           </div>
-          <SideBar />
         </div>
         <Suspense key={page} fallback={<ArticlesSkeleton />}>
           <Articles searchQ={searchQ} page={page} />

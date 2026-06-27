@@ -3,16 +3,23 @@ import ArticlesSkeleton from "@/component/ArticlesSkeleton";
 import Pagination from "@/component/Pagination";
 import SideBar from "@/component/SideBar";
 import { getArticlesOfCategory } from "@/lib";
+import { cookies } from "next/headers";
 import { Suspense } from "react";
 
 async function Articles({
   page,
   category,
+  timeZone,
 }: {
   page: string | undefined;
   category: string;
+  timeZone: string | undefined;
 }) {
-  const { articles, nextPage } = await getArticlesOfCategory(category, page);
+  const { articles, nextPage } = await getArticlesOfCategory(
+    category,
+    page,
+    timeZone,
+  );
 
   return (
     <>
@@ -34,6 +41,8 @@ export default async function page({
   params: Promise<{ category: string }>;
   searchParams: Promise<{ page: string }>;
 }) {
+  const myCookies = await cookies();
+  const timeZone = myCookies.get("timezone")?.value;
   const { category } = await params;
   const { page } = await searchParams;
   return (
@@ -139,10 +148,10 @@ export default async function page({
               range of topics.
             </p>
           </div>
-          <SideBar />
+          <SideBar category={category} />
         </div>
-        <Suspense key={page} fallback={<ArticlesSkeleton />}>
-          <Articles page={page} category={category} />
+        <Suspense key={page + timeZone} fallback={<ArticlesSkeleton />}>
+          <Articles page={page} timeZone={timeZone} category={category} />
         </Suspense>
         {/* Grid */}
       </main>
