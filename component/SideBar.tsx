@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function SideBar({ category }: { category: string }) {
   const [isShow, setIsShow] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const router = useRouter();
   function toggleSideBarHandler() {
     setIsShow((prevState) => !prevState);
@@ -13,9 +14,16 @@ export default function SideBar({ category }: { category: string }) {
 
   function handleTimeZone(e: ChangeEvent<HTMLSelectElement>) {
     Cookies.set("timezone", e.target.value, { expires: 7 });
+    setDisabled(false);
   }
 
   function handleFilteration() {
+    router.push(`/${category}`);
+    toggleSideBarHandler();
+  }
+
+  function resetFilteration() {
+    Cookies.remove("timezone");
     router.push(`/${category}`);
     toggleSideBarHandler();
   }
@@ -78,7 +86,7 @@ export default function SideBar({ category }: { category: string }) {
             </div>
 
             {/* Sort */}
-            <div>
+            {/* <div>
               <h3 className="font-semibold mb-3">Domain Priority</h3>
 
               <select className="select select-bordered w-full">
@@ -86,19 +94,26 @@ export default function SideBar({ category }: { category: string }) {
                 <option>Medium</option>
                 <option>Low</option>
               </select>
-            </div>
+            </div> */}
 
             {/* Source */}
 
             {/* Actions */}
             <div className="flex flex-col gap-3 pt-2">
               <button
+                disabled={disabled}
                 onClick={handleFilteration}
                 className="btn btn-primary w-full"
               >
                 Apply Filters
               </button>
-
+              <button
+                disabled={!Boolean(Cookies.get("timezone")) || !disabled}
+                onClick={resetFilteration}
+                className="btn btn-warning w-full"
+              >
+                Reset
+              </button>
               <button
                 onClick={toggleSideBarHandler}
                 className="btn btn-outline w-full"

@@ -1,6 +1,7 @@
 import ArticleCard from "@/component/ArticleCard";
 import ArticlesSkeleton from "@/component/ArticlesSkeleton";
 import Pagination from "@/component/Pagination";
+import RemoveFilteration from "@/component/RemoveFilteration";
 import SideBar from "@/component/SideBar";
 import { getArticlesOfCategory } from "@/lib";
 import { cookies } from "next/headers";
@@ -47,6 +48,7 @@ export default async function page({
   const { page } = await searchParams;
   return (
     <main className="flex font-sans px-5 pt-16">
+      <RemoveFilteration />
       {/* Sidebar */}
       <aside className="hidden lg:flex w-64 min-w-64 flex-col border-r px-6 py-8">
         <div className="pb-6 border-b">

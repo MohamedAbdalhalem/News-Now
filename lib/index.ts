@@ -17,7 +17,6 @@ export async function getArticlesOfCategory(
     results: article[];
     nextPage: string;
   };
-  console.log(articles);
   return {
     articles,
     nextPage,
