@@ -7,6 +7,7 @@ import { getArticlesOfCategory } from "@/lib";
 import { cookies } from "next/headers";
 import { Suspense } from "react";
 
+// define a server componet to use in suspese 
 async function Articles({
   page,
   category,
@@ -16,6 +17,7 @@ async function Articles({
   category: string;
   timeZone: string | undefined;
 }) {
+  // destruct the data form getArticlesOfCategory
   const { articles, nextPage } = await getArticlesOfCategory(
     category,
     page,
@@ -42,8 +44,11 @@ export default async function page({
   params: Promise<{ category: string }>;
   searchParams: Promise<{ page: string }>;
 }) {
+  // use cookies form next to bring the unsured params 
   const myCookies = await cookies();
   const timeZone = myCookies.get("timezone")?.value;
+
+  // use params and serch params to ensured params 
   const { category } = await params;
   const { page } = await searchParams;
   return (
@@ -150,8 +155,10 @@ export default async function page({
               range of topics.
             </p>
           </div>
+          {/* side bar */}
           <SideBar category={category} />
         </div>
+        {/* use suspense for loading skeelton */}
         <Suspense key={page + timeZone} fallback={<ArticlesSkeleton />}>
           <Articles page={page} timeZone={timeZone} category={category} />
         </Suspense>

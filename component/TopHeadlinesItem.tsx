@@ -10,6 +10,7 @@ export default function TopHeadlinesItem({
   return (
     <div>
       <div className="relative w-full h-90 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+        {/* TopHeadlinesItem image  */}
         <Image
           src={articleData.image_url ? articleData.image_url : notFoundImage}
           alt={articleData.title}
@@ -19,14 +20,21 @@ export default function TopHeadlinesItem({
 
         <div className="absolute bottom-0 p-4 text-white w-full">
           <span className="badge badge-info mb-2">Trending</span>
+          {/* TopHeadlinesItem title  */}
           <h2 className="text-lg font-bold line-clamp-2">
             {articleData.title}
           </h2>
+
+          {/* TopHeadlinesItem description  */}
           <p className="text-sm text-gray-300 line-clamp-2 mt-1">
             {articleData.description}
           </p>
+
           <div className="flex justify-between items-center mt-3 text-xs">
+            {/* TopHeadlinesItem puplish data */}
             <span>{new Date(articleData.pubDate).toLocaleDateString()}</span>
+
+            {/* link for read more  */}
             <a
               href={articleData.link}
               target="_blank"

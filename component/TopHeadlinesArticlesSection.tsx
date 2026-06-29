@@ -4,39 +4,37 @@ import { article } from "@/types/article";
 import ClientRefresher from "./ClientRefresher";
 
 async function Articles() {
+  // use async awiat fetch to fetch top headline articles
   const response = await fetch(
     "https://newsdata.io/api/1/latest?apikey=pub_61b7fff946fc4d8a98761cd82c368365",
-    {cache:'no-cache'}
+    { cache: "no-cache" },
   );
 
   const data = (await response.json()) as { results: article[] };
   return (
     <div className="space-y-6">
-  {/* Hero News */}
-  <div className="overflow-hidden rounded-3xl">
-    <TopHeadlinesItem
-      articleData={data.results[0]}
-      
-    />
-  </div>
+      {/* Hero News */}
+      <div className="overflow-hidden rounded-3xl">
+        <TopHeadlinesItem articleData={data.results[0]} />
+      </div>
 
-  {/* Other News */}
-  <div className="hidden md:grid md:grid-cols-2  gap-6">
-    {data.results.slice(1, 3).map((article: article) => (
-      <TopHeadlinesItem
-        key={article.article_id}
-        articleData={article}
-      />
-    ))}
-  </div>
-</div>
+      {/* Other News */}
+      <div className="hidden md:grid md:grid-cols-2  gap-6">
+        {data.results.slice(1, 3).map((article: article) => (
+          <TopHeadlinesItem key={article.article_id} articleData={article} />
+        ))}
+      </div>
+    </div>
   );
 }
 
 export default function TopHeadlinesArticlesSection() {
   return (
     <div>
-      <ClientRefresher/>
+      {/* a componet ot reftch the data every ten seconds */}
+      <ClientRefresher />
+
+      {/* use suspense for loading state */}
       <Suspense
         fallback={
           <div className="flex w-full flex-col  gap-4">

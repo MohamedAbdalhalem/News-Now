@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
 import { MouseEvent } from "react";
 
-export default function ReadMoreButton({link} : {link : string}) {
-  function readMoreHandler(e: MouseEvent<HTMLButtonElement>){
-    e.preventDefault()
-    window.open(link)
+// make a client button component to read more about the article that it has
+export default function ReadMoreButton({ link }: { link: string }) {
+  function readMoreHandler(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    window.open(link);
   }
   return (
     <button

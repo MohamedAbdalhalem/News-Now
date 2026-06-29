@@ -3,8 +3,13 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
 export default function SearchSection() {
+  // define a state for storing the search q from the user and handle disabled search button
   const [searchQ, setSearchQ] = useState<undefined | string>(undefined);
+
+  // use useRouter to push query param to the url
   const router = useRouter();
+
+  // define a function to track the change event for the seach input
   const changeSearchQ = function (event: ChangeEvent<HTMLInputElement>) {
     setSearchQ(event.target.value);
   };
@@ -18,12 +23,14 @@ export default function SearchSection() {
         </p>
 
         <div className="flex items-center bg-base-200 rounded-full shadow-md overflow-hidden focus-within:ring-2 focus-within:ring-primary transition-all duration-300">
+          {/* search input  */}
           <input
             type="search"
             onChange={changeSearchQ}
             placeholder="Search news..."
             className="flex-1 px-6 py-3 bg-transparent outline-none text-base"
           />
+          {/* search button */}
           <button
             disabled={!Boolean(searchQ)}
             onClick={() => router.push(`/search/${searchQ}`)}

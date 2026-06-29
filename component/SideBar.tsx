@@ -5,23 +5,32 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
 export default function SideBar({ category }: { category: string }) {
+  // define a state to toggle showing ui
   const [isShow, setIsShow] = useState(false);
+  // defint a state for disabled the apply fiters button
   const [disabled, setDisabled] = useState(true);
+
+  // use useRouter to go back to the category without pagination
   const router = useRouter();
+
+  // define a funciton to toggle showing sidebar
   function toggleSideBarHandler() {
     setIsShow((prevState) => !prevState);
   }
 
+  // define a funcion to set item to cookies for timezone using the select value
   function handleTimeZone(e: ChangeEvent<HTMLSelectElement>) {
     Cookies.set("timezone", e.target.value, { expires: 7 });
     setDisabled(false);
   }
 
+  // define a function to apply fileraions
   function handleFilteration() {
     router.push(`/${category}`);
     toggleSideBarHandler();
   }
 
+  // define a function to reset fileraions
   function resetFilteration() {
     Cookies.remove("timezone");
     router.push(`/${category}`);
@@ -99,6 +108,7 @@ export default function SideBar({ category }: { category: string }) {
             {/* Source */}
 
             {/* Actions */}
+            {/* apply filer button  */}
             <div className="flex flex-col gap-3 pt-2">
               <button
                 disabled={disabled}
@@ -107,6 +117,8 @@ export default function SideBar({ category }: { category: string }) {
               >
                 Apply Filters
               </button>
+
+              {/* reset button */}
               <button
                 disabled={!Boolean(Cookies.get("timezone")) || !disabled}
                 onClick={resetFilteration}
@@ -114,6 +126,8 @@ export default function SideBar({ category }: { category: string }) {
               >
                 Reset
               </button>
+
+              {/* close sidebar Button */}
               <button
                 onClick={toggleSideBarHandler}
                 className="btn btn-outline w-full"
