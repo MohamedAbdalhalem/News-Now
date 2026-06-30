@@ -6,7 +6,7 @@ export default function ArticleCard({ article }: { article: article }) {
   return (
     // use the link componet to link every article to article detials
     <Link
-      href={`${article.category[0]}/${article.article_id}`}
+      href={`${article.article_id}`}
       className="group h-full flex flex-col border border-black/10 overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-xl"
     >
       {/* the aricle image */}
