@@ -1,12 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getFirebaseToken } from "@/firebase";
+import Cookies from "js-cookie";
 export default function NotificationBanner() {
   const [showNotificationBanner, setShowNotificationBanner] = useState(true);
+  Cookies;
   const handleGetFirebaseToken = () => {
     getFirebaseToken()
       .then((firebaseToken) => {
-        console.log("Firebase token: ", firebaseToken);
+        Cookies.set("Firebase_token", firebaseToken);
         if (firebaseToken) {
           setShowNotificationBanner(false);
         }
@@ -18,6 +20,10 @@ export default function NotificationBanner() {
         ),
       );
   };
+
+  useEffect(() => {
+    Cookies.get("Firebase_token") && setShowNotificationBanner(false);
+  }, []);
   return (
     <div>
       {showNotificationBanner && (
