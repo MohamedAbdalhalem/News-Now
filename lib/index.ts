@@ -18,7 +18,7 @@ export async function getArticlesOfCategory(
   const timeZoneParam = timeZone ? `&timezone=${timeZone}` : "";
 
   // define a url variable using template letiers
-  const url = `https://newsdata.io/api/1/latest?apikey=pub_61b7fff946fc4d8a98761cd82c368365${pageParam}&${timeZoneParam}&${params}`;
+  const url = `https://newsdata.io/api/1/latest?apikey=pub_781cf392275245829f11a3d763ba2992${pageParam}&${timeZoneParam}&${params}`;
 
   // use fetch ot handle get request
   const response = await fetch(url);

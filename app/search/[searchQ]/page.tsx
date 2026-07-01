@@ -11,7 +11,7 @@ async function Articles({
   page: string | undefined;
 }) {
   const url = `https://newsdata.io/api/1/latest? 
-  apikey=pub_61b7fff946fc4d8a98761cd82c368365
+  apikey=pub_781cf392275245829f11a3d763ba2992
   &q=${searchQ} ${page ? `&page=${page}` : ""}`;
   const response = await fetch(url);
   const { results: articles, nextPage } = (await response.json()) as {
