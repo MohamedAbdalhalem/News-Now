@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./globals.css";
 import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
+import NotificationBanner from "@/component/NotificationBanner";
 
 const robotoSans = Roboto({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${robotoSans.className}`}>
+        <NotificationBanner />
         <Navbar />
         {children}
         <Footer />
