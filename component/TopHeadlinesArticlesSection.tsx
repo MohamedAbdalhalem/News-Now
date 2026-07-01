@@ -6,7 +6,7 @@ import ClientRefresher from "./ClientRefresher";
 async function Articles() {
   // use async awiat fetch to fetch top headline articles
   const response = await fetch(
-    "https://newsdata.io/api/1/latest?apikey=pub_61b7fff946fc4d8a98761cd82c368365",
+    "https://newsdata.io/api/1/latest?apikey=pub_781cf392275245829f11a3d763ba2992",
     { cache: "no-cache" },
   );
 
